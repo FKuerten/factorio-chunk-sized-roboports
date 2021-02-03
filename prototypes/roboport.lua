@@ -25,7 +25,9 @@ local function rescaleRoboport(name, newLogisticRadius)
   local entity = data.raw["roboport"][name]
   local radiusRatioSquared = rescaleRoboportEntity(entity, newLogisticRadius)
   local recipe = data.raw["recipe"][name]
-  rescaleRecipe(recipe, radiusRatioSquared)
+  if recipe then
+    rescaleRecipe(recipe, radiusRatioSquared)
+  end
 end
 
 local function rescaleIfFound(name, newLogisticRadius)

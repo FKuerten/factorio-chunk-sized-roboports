@@ -20,7 +20,9 @@ local function rescalePole(name, newReach, newSupplyRadius)
   local entity = data.raw['electric-pole'][name]
   local costFactor = rescalePoleEntity(entity, newReach, newSupplyRadius)
   local recipe = data.raw['recipe'][name]
-  rescaleRecipe(recipe, costFactor)
+  if recipe then
+    rescaleRecipe(recipe, costFactor)
+  end
 end
 
 local function rescaleIfFound(name, newReach, newSupplyRadius)
