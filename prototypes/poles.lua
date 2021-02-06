@@ -42,3 +42,8 @@ rescaleIfFound('substation', 16 + extraReach, 16 + extraSupplyRadius)
 rescaleIfFound('substation-2', 22 + extraReach, 22 + extraSupplyRadius)
 rescaleIfFound('substation-3', 24 + extraReach, 24 + extraSupplyRadius)
 rescaleIfFound('substation-4', 32 + extraReach, 32 + extraSupplyRadius)
+
+-- Cargoships
+if mods['cargo-ships'] then
+  rescalePoleEntity(data.raw['electric-pole']['floating-electric-pole'], 32 + extraReach, 0)
+end

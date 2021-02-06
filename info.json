@@ -1,6 +1,6 @@
 {
   "name": "chunk-sized-roboports",
-  "version": "3.1.1",
+  "version": "3.2.0",
   "factorio_version": "1.1",
   "title": "Chunk sized roboports and power poles.",
   "author": "Graveeater",
@@ -10,6 +10,8 @@
     "base >= 0.17.4",
     "?boblogistics >= 1.1.2",
     "?bobpower >= 1.1.1",
-    "?industrialrevolution"
+    "?industrialrevolution",
+    "?Krastorio2",
+    "?cargo-ships"
   ]
 }
