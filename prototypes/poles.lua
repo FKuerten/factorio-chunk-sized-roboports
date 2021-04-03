@@ -38,10 +38,10 @@ rescaleIfFound('big-electric-pole-3', 48 + extraReach, 2) -- 2 needed for 3 chun
 rescaleIfFound('big-electric-pole-4', 64 + extraReach, 2) -- 2 needed for 4 chunks
 
 -- substation
-rescaleIfFound('substation', 16 + extraReach, 16 + extraSupplyRadius)
-rescaleIfFound('substation-2', 22 + extraReach, 22 + extraSupplyRadius)
-rescaleIfFound('substation-3', 24 + extraReach, 24 + extraSupplyRadius)
-rescaleIfFound('substation-4', 32 + extraReach, 32 + extraSupplyRadius)
+rescaleIfFound('substation', 16 + extraReach, 16/2 + extraSupplyRadius)
+rescaleIfFound('substation-2', 22 + extraReach, 22/2 + extraSupplyRadius)
+rescaleIfFound('substation-3', 24 + extraReach, 24/2 + extraSupplyRadius)
+rescaleIfFound('substation-4', 32 + extraReach, 32/2 + extraSupplyRadius)
 
 -- Cargoships
 if mods['cargo-ships'] then
