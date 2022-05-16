@@ -21,18 +21,19 @@ local function rescaleRoboportEntity(entity, newLogisticRadius)
   return radiusRatioSquared
 end
 
-local function rescaleRoboport(name, newLogisticRadius)
+local function rescaleRoboport(name, newLogisticRadius, recipeName)
   local entity = data.raw["roboport"][name]
   local radiusRatioSquared = rescaleRoboportEntity(entity, newLogisticRadius)
-  local recipe = data.raw["recipe"][name]
+  recipeName = recipeName or name
+  local recipe = data.raw["recipe"][recipeName]
   if recipe then
     rescaleRecipe(recipe, radiusRatioSquared)
   end
 end
 
-local function rescaleIfFound(name, newLogisticRadius)
+local function rescaleIfFound(name, newLogisticRadius, recipeName)
   if data.raw['roboport'][name] then
-    rescaleRoboport(name, newLogisticRadius)
+    rescaleRoboport(name, newLogisticRadius, recipeName)
   end
 end
 
@@ -75,3 +76,6 @@ rescaleIfFound("bob-logistic-zone-expander", 16 + extraRadius)
 rescaleIfFound("bob-logistic-zone-expander-2", 16 * 2 + extraRadius)
 rescaleIfFound("bob-logistic-zone-expander-3", 16 * 3 + extraRadius)
 rescaleIfFound("bob-logistic-zone-expander-4", 16 * 4 + extraRadius)
+
+-- default radius was 70
+rescaleIfFound("fi_robo_port_entity",16 * 4 + extraRadius, "fi_robo_port_recipe")
