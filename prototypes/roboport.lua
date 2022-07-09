@@ -8,15 +8,19 @@ end
 
 local function rescaleRoboportEntity(entity, newLogisticRadius)
   local radiusRatio = newLogisticRadius / entity.logistics_radius
-  local extraConstructionRadius = entity.construction_radius - 2 * entity.logistics_radius -- 0.15.9: 55 - 2 * 25 == 5
   local radiusRatioSquared = radiusRatio * radiusRatio
+  local newConstructionRadius = entity.construction_radius * radiusRatio
   entity.logistics_radius = newLogisticRadius
-  entity.construction_radius = 2 * newLogisticRadius + extraConstructionRadius
+  entity.construction_radius = newConstructionRadius
 
   local oldEnergyUsage = entity.energy_usage
   local oldEnergyUsageNumber = tonumber(oldEnergyUsage:sub(1,-3))
   local oldUnit = oldEnergyUsage:sub(-2)
+  local oldRechargeMinimum = entity.recharge_minimum
+  local oldRechargeMinimumNumber = tonumber(oldRechargeMinimum:sub(1,-3))
+  local oldRechargeUnit = oldRechargeMinimum:sub(-2)
   entity.energy_usage = round(oldEnergyUsageNumber * radiusRatioSquared) .. oldUnit
+  entity.recharge_minimum = round(oldRechargeMinimumNumber * radiusRatioSquared+1) .. oldRechargeUnit
 
   return radiusRatioSquared
 end
